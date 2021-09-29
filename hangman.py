@@ -25,15 +25,15 @@ class Hangman_Game:
     return guess_correct
     
   def display_word(self) -> str:
-    return str([letter for letter in self.word if letter in self.letters_guessed])
+    return ' '.join([letter.upper() for letter in self.word if letter in self.letters_guessed else '_'])
     
   def display_guesses(self) -> str:
     return ', '.join(self.letters_guessed)
     
-  def have_lives_left(self):
+  def have_lives_left(self) -> bool:
     return self.wrong_guesses < self.lives
     
-  def get_ascii_art(self):
+  def get_ascii_art(self) -> str:
     return self.ascii_art[self.wrong_guesses]
 
     
